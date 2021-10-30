@@ -18,7 +18,7 @@ namespace DataAccess.Concrete.EntityFramework
                 var addedEntity = context.Entry(entity);
                 addedEntity.State = EntityState.Added;
                 context.SaveChanges();
-            }
+        }
         }
 
         public void Delete(Product entity)
@@ -28,7 +28,7 @@ namespace DataAccess.Concrete.EntityFramework
                 var deletedEntity = context.Entry(entity);
                 deletedEntity.State = EntityState.Deleted;
                 context.SaveChanges();
-            }
+        }
         }
 
         public Product Get(Expression<Func<Product, bool>> filter)
@@ -52,7 +52,7 @@ namespace DataAccess.Concrete.EntityFramework
         public void Update(Product entity)
         {
             using (NorthwindContext context = new NorthwindContext())
-            {
+        {
                 var updatedEntity = context.Entry(entity);
                 updatedEntity.State = EntityState.Modified;
                 context.SaveChanges();
