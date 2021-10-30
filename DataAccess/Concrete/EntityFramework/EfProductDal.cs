@@ -9,11 +9,11 @@ using System.Linq.Expressions;
 namespace DataAccess.Concrete.EntityFramework
 {
     public class EfProductDal : IProductDal
-    {        
+    {
         public void Add(Product entity)
         {
             //IDisposable pattern impelementation of C#
-            using (NorthwindContext context=new NorthwindContext())
+            using (NorthwindContext context = new NorthwindContext())
             {
                 var addedEntity = context.Entry(entity);
                 addedEntity.State = EntityState.Added;
@@ -43,8 +43,8 @@ namespace DataAccess.Concrete.EntityFramework
         {
             using (NorthwindContext context = new NorthwindContext())
             {
-                return filter == null 
-                    ? context.Set<Product>().ToList() 
+                return filter == null
+                    ? context.Set<Product>().ToList()
                     : context.Set<Product>().Where(filter).ToList();
             }
         }
@@ -57,6 +57,8 @@ namespace DataAccess.Concrete.EntityFramework
                 updatedEntity.State = EntityState.Modified;
                 context.SaveChanges();
             }
+
+
         }
     }
 }
